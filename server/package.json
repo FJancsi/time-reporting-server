@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Test server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Janos Fekete",
+  "license": "ISC",
+  "dependencies": {
+    "good": "^8.1.2",
+    "good-console": "^8.0.0",
+    "good-squeeze": "^5.1.0",
+    "hapi": "^18.1.0"
+  }
+}
