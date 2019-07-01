@@ -7,8 +7,8 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 const server = Hapi.server({
-  port: 3000,
-  host: "localhost",
+  port: ~~process.env.PORT || 3000,
+  host: '0.0.0.0',
   routes: {
     cors: {
       origin: ["*"]
@@ -97,7 +97,6 @@ server.route({
 
 const start = async () => {
   await server.register([consoleLogging]);
-
   await server.start();
 };
 
