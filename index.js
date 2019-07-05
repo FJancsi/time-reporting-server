@@ -1,23 +1,23 @@
-const Hapi = require("hapi");
-const Good = require("good");
-const GoodConsole = require("good-console");
-const fs = require("fs");
-const { promisify } = require("util");
+const Hapi = require('hapi');
+const fs = require('fs');
+const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
+
+const consoleLogging = require('./utils/logging.js');
 
 const server = Hapi.server({
   port: ~~process.env.PORT || 3000,
   host: '0.0.0.0',
   routes: {
     cors: {
-      origin: ["*"]
+      origin: ['*']
     }
   }
 });
 
 const getUsers = async filter => {
-  let data = await readFile("./users.json", "utf-8");
+  let data = await readFile('./users.json', 'utf-8');
   let users = JSON.parse(data);
 
   return filter ? users.users.filter(user => user.id === filter) : users;
@@ -27,37 +27,14 @@ const saveUser = async user => {
   const users = await getUsers();
 
   users.users.push(user);
-  await writeFile("./users.json", JSON.stringify(users));
+  await writeFile('./users.json', JSON.stringify(users));
 
-  //return { "response": "user has been saved" };
-  return "User has been saved!";
-};
-
-const consoleLogging = {
-  plugin: Good,
-  options: {
-    ops: {
-      interval: 1000
-    },
-    reporters: {
-      consoleReporter: [
-        {
-          module: "good-squeeze",
-          name: "Squeeze",
-          args: [{ response: "*", log: "*" }]
-        },
-        {
-          module: "good-console"
-        },
-        "stdout"
-      ]
-    }
-  }
+  return 'User has been saved!';
 };
 
 server.route({
-  path: "/users",
-  method: "GET",
+  path: '/users',
+  method: 'GET',
   handler: async (req, h) => {
     try {
       const users = await getUsers();
@@ -69,8 +46,8 @@ server.route({
 });
 
 server.route({
-  path: "/user/{id}",
-  method: "GET",
+  path: '/user/{id}',
+  method: 'GET',
   handler: async (req, h) => {
     try {
       const users = await getUsers(encodeURIComponent(req.params.id));
@@ -82,8 +59,8 @@ server.route({
 });
 
 server.route({
-  path: "/user",
-  method: "PUT",
+  path: '/user',
+  method: 'PUT',
   handler: async (req, h) => {
     try {
       const user = req.payload;
