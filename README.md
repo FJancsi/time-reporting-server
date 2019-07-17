@@ -1,7 +1,6 @@
 It's a REST full API to practice ajax calls at client side (using CRUD).
 
 [![Build Status](https://travis-ci.org/FJancsi/time-reporting-server.svg?branch=master)](https://travis-ci.org/FJancsi/time-reporting-server)
-
 [![Known Vulnerabilities](https://snyk.io//test/github/FJancsi/time-reporting-server/badge.svg?targetFile=package.json)](https://snyk.io//test/github/FJancsi/time-reporting-server?targetFile=package.json)
 
 Prerequisites:
