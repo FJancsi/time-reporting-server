@@ -28,7 +28,7 @@ const updateUser = (id, user) => {
 
 const deleteUser = (id) => {
     return UserModel.findByIdAndDelete(id);
-}
+};
 
 const UserODM = {
     saveUser: saveUser,
