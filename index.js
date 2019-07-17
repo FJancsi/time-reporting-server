@@ -1,7 +1,7 @@
 const Hapi = require('hapi');
 const UserHandler = require('./routes/UserHandler.js');
 const UserValidation = require('./validations/UserValidation.js');
-const consoleLogging = require('./utils/Logging.js');
+const consoleLogging = require('./utils/logging.js');
 
 const server = Hapi.server({
   port: ~~process.env.PORT || 3000,
