@@ -1,5 +1,5 @@
-const Good = require("good");
-const GoodConsole = require("good-console");
+const Good = require('good');
+const GoodConsole = require('good-console');
 
 const consoleLogging = {
     plugin: Good,
@@ -10,14 +10,14 @@ const consoleLogging = {
         reporters: {
             consoleReporter: [
                 {
-                    module: "good-squeeze",
-                    name: "Squeeze",
-                    args: [{ response: "*", log: "*" }]
+                    module: 'good-squeeze',
+                    name: 'Squeeze',
+                    args: [{ response: '*', log: '*' }]
                 },
                 {
-                    module: "good-console"
+                    module: 'good-console'
                 },
-                "stdout"
+                'stdout'
             ]
         }
     }

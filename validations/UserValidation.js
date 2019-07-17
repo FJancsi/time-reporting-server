@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const failAction = (req, h, response) => {
+const failAction = (req, h, error) => {
     return error.isJoi ? h.response(error.details[0]).code(400).takeover() : h.response(error).code(400).takeover();
 };
 
