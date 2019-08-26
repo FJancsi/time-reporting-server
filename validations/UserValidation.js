@@ -8,7 +8,8 @@ const saveUserValidation = {
     payload: {
         name: Joi.string().required(),
         email: Joi.string().required(),
-        loggedHours: Joi.array().required()
+        loggedHours: Joi.array().required(),
+        submittedDate: Joi.date().required()
     },
     failAction: failAction
 };
@@ -17,7 +18,8 @@ const updateUserValidation = {
     payload: {
         name: Joi.string().optional(),
         email: Joi.string().optional(),
-        loggedHours: Joi.array().optional()
+        loggedHours: Joi.array().optional(),
+        submittedDate: Joi.date().optional()
     },
     failAction: failAction
 };
