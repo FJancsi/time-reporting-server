@@ -1,4 +1,4 @@
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 const UserHandler = require('./routes/UserHandler.js');
 const UserValidation = require('./validations/UserValidation.js');
 const consoleLogging = require('./utils/logging.js');
